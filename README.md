@@ -1,5 +1,10 @@
 # Collaboration with MQ - Bonita + RabbitMQ
 
+**Integrantes del proyecto:**
+- Karla Verónica Cornejo Pari  
+- Lizardo Manuel Castillo Llaza  
+- Jose Alejandro Machaca Muñiz
+
 Este proyecto está diseñado para integrar Bonita BPM con RabbitMQ mediante servicios Java.
 
 ## Requisitos
