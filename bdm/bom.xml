@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.13.0">
+    <businessObjects>
+        <businessObject qualifiedName="com.company.model.AccountRequestCustomer">
+            <fields>
+                <field type="LONG" length="255" name="requestID" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="username" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="email" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="cmsAccessRequested" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="crmAccessRequested" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="erpAccessRequested" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="requestAccepted" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="messageFromIT" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.AccountRequestIT">
+            <fields>
+                <field type="LONG" length="255" name="customerRequestID" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="customerUsername" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="customerEmail" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="cmsAccessRequested" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="crmAccessRequested" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="erpAccessRequested" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="requestComplete" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="messageToCustomer" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Customer">
+            <fields>
+                <field type="STRING" length="255" name="firstName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="lastName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="dedicatedSalesAdmin" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Donation">
+            <fields>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="getTotal" content="SELECT SUM(d.amount)&#13;&#10;FROM Donation d &#13;&#10;" returnType="java.lang.Long">
+                    <queryParameters/>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.ExternalJobApplication">
+            <fields>
+                <field type="STRING" length="255" name="applicantUsername" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="text" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="answer" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="cancelled" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="cancellationMessage" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.JobApplication">
+            <fields>
+                <field type="STRING" length="255" name="applicantUsername" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="text" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.JobPosting">
+            <fields>
+                <field type="STRING" length="255" name="jobTitle" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="jobDescription" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.company.model.JobApplication" fetchType="EAGER" name="applications" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.OrderCollab">
+            <fields>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="product" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="confirmed" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="shipped" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="shipmentDate" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.OrderItem">
+            <fields>
+                <field type="INTEGER" length="255" name="number" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="product" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.OrderReplyCollab">
+            <fields>
+                <field type="LONG" length="255" name="orderID" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="product" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="confirmed" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="shipped" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="shipmentDate" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.ProductDescription">
+            <fields>
+                <field type="STRING" length="255" name="text" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="hardwareSpec" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="softwareSpec" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.ProjectProposal">
+            <fields>
+                <field type="STRING" length="255" name="text" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="assessmentRegionalBranch" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="assessmentNationalBranch" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="assessmentHQ" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="consolidatedAssessment" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Proposal">
+            <fields>
+                <field type="STRING" length="255" name="customer" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="email" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="inquiry_text" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="description" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="price" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="comment" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="caseId" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="decision" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.PurchaseOrder">
+            <fields>
+                <field type="STRING" length="255" name="customer" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="orderDate" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.company.model.OrderItem" fetchType="EAGER" name="orderItem" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.PurchaseReq">
+            <fields>
+                <field type="STRING" length="255" name="requestorUsername" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="product" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="reason" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="costs" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="isComplete" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="approved" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.PurchaseRequisition">
+            <fields>
+                <field type="LONG" length="255" name="requistionID" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="product" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="isConfirmed" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="comment" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Request">
+            <fields>
+                <field type="STRING" length="255" name="uuid" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="item" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="quantity" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="price" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="accepted" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.SimpleOrder">
+            <fields>
+                <field type="STRING" length="255" name="item" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="rating" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="relationshipDuration" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="approved" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Text">
+            <fields>
+                <field type="STRING" length="255" name="content" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.VacationAvailable">
+            <description>The number of vacation days available to the specified employee.</description>
+            <fields>
+                <field type="LONG" length="255" name="bonitaBPMId" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="daysAvailableCounter" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="uniqueBonitaBPMId">
+                    <fieldNames>
+                        <fieldName>bonitaBPMId</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes>
+                <index name="INDEX_4">
+                    <fieldNames>
+                        <fieldName>bonitaBPMId</fieldName>
+                    </fieldNames>
+                </index>
+            </indexes>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.VacationRequest">
+            <description>An employee vacation request.&#13;
+Possible status values are: pending, approved, refused, processing cancellation and cancelled.</description>
+            <fields>
+                <field type="LONG" length="255" name="requesterBonitaBPMId" nullable="false" collection="false"/>
+                <field type="LONG" length="255" name="reviewerBonitaBPMId" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="startDate" nullable="false" collection="false"/>
+                <field type="LOCALDATE" length="255" name="returnDate" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="numberOfDays" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="comments" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="calendarEventId" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="newRequestProcessInstanceId" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findModifiableByBonitaBPMId" content="SELECT l &#13;&#10;FROM VacationRequest l &#13;&#10;WHERE l.requesterBonitaBPMId = :requesterBonitaBPMId&#13;&#10;AND l.startDate &gt; CURRENT_DATE&#13;&#10;AND l.status IN('pending')&#13;&#10;ORDER BY l.startDate ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                    </queryParameters>
+                </query>
+                <query name="findCancellableByBonitaBPMId" content="SELECT l &#13;&#10;FROM VacationRequest l &#13;&#10;WHERE l.requesterBonitaBPMId = :requesterBonitaBPMId&#13;&#10;AND l.status IN('pending', 'approved')&#13;&#10;ORDER BY l.startDate ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                    </queryParameters>
+                </query>
+            </queries>
+            <indexes>
+                <index name="INDEX_1">
+                    <fieldNames>
+                        <fieldName>requesterBonitaBPMId</fieldName>
+                    </fieldNames>
+                </index>
+                <index name="INDEX_2">
+                    <fieldNames>
+                        <fieldName>requesterBonitaBPMId</fieldName>
+                        <fieldName>status</fieldName>
+                    </fieldNames>
+                </index>
+                <index name="INDEX_3">
+                    <fieldNames>
+                        <fieldName>requesterBonitaBPMId</fieldName>
+                        <fieldName>status</fieldName>
+                        <fieldName>startDate</fieldName>
+                    </fieldNames>
+                </index>
+            </indexes>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.WarehouseOrder">
+            <fields>
+                <field type="LONG" length="255" name="orderID" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="product" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.WarehouseStock">
+            <fields>
+                <field type="INTEGER" length="255" name="amount" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.BusinessObject">
+            <fields>
+                <field type="STRING" length="255" name="attribute" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.ExchangeRate">
+            <fields>
+                <field type="STRING" length="255" name="currencyCode" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="rateValue" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>

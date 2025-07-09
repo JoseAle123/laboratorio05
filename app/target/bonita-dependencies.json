@@ -1,0 +1,73 @@
+{
+  "connectorImplementations" : [ {
+    "type" : "CONNECTOR",
+    "className" : "org.bonitasoft.connectors.groovy.GroovyScriptConnector",
+    "implementationId" : "scripting-groovy-script-impl",
+    "implementationVersion" : "1.1.3",
+    "definitionId" : "scripting-groovy-script",
+    "definitionVersion" : "1.0.1",
+    "artifact" : {
+      "groupId" : "org.bonitasoft.connectors",
+      "artifactId" : "bonita-connector-groovy",
+      "version" : "1.1.3",
+      "file" : "C:\\Users\\LENOVO\\.m2\\repository\\org\\bonitasoft\\connectors\\bonita-connector-groovy\\1.1.3\\bonita-connector-groovy-1.1.3.jar"
+    },
+    "jarEntry" : "scripting-groovy-script.impl"
+  }, {
+    "type" : "CONNECTOR",
+    "className" : "com.company.connector.connector_rabbitmq.ConnectorRabbitMQ",
+    "implementationId" : "connector-rabbitmq-impl",
+    "implementationVersion" : "0.0.1-SNAPSHOT",
+    "definitionId" : "connector-rabbitmq",
+    "definitionVersion" : "1.0.0",
+    "artifact" : {
+      "groupId" : "com.company.connector",
+      "artifactId" : "connector-rabbitmq",
+      "version" : "0.0.1-SNAPSHOT",
+      "file" : "C:\\Users\\LENOVO\\.m2\\repository\\com\\company\\connector\\connector-rabbitmq\\0.0.1-SNAPSHOT\\connector-rabbitmq-0.0.1-SNAPSHOT.jar"
+    },
+    "jarEntry" : "connector-rabbitmq.impl"
+  } ],
+  "filterImplementations" : [ ],
+  "connectorDefinitions" : [ {
+    "definitionId" : "scripting-groovy-script",
+    "definitionVersion" : "1.0.1",
+    "artifact" : {
+      "groupId" : "org.bonitasoft.connectors",
+      "artifactId" : "bonita-connector-groovy",
+      "version" : "1.1.3",
+      "file" : "C:\\Users\\LENOVO\\.m2\\repository\\org\\bonitasoft\\connectors\\bonita-connector-groovy\\1.1.3\\bonita-connector-groovy-1.1.3.jar"
+    },
+    "jarEntry" : "scripting-groovy-script.def"
+  }, {
+    "definitionId" : "connector-rabbitmq",
+    "definitionVersion" : "1.0.0",
+    "artifact" : {
+      "groupId" : "com.company.connector",
+      "artifactId" : "connector-rabbitmq",
+      "version" : "0.0.1-SNAPSHOT",
+      "file" : "C:\\Users\\LENOVO\\.m2\\repository\\com\\company\\connector\\connector-rabbitmq\\0.0.1-SNAPSHOT\\connector-rabbitmq-0.0.1-SNAPSHOT.jar"
+    },
+    "jarEntry" : "connector-rabbitmq.def"
+  } ],
+  "filterDefinitions" : [ ],
+  "restApiExtensions" : [ ],
+  "pages" : [ ],
+  "forms" : [ ],
+  "themes" : [ ],
+  "applicationDescriptors" : [ {
+    "displayName" : "Bonita Administrator Application",
+    "version" : "6.4",
+    "description" : "This application allows to deploy and manage all the elements of Bonita projects.",
+    "profile" : "Administrator",
+    "appToken" : "adminAppBonita",
+    "artifact" : {
+      "groupId" : "org.bonitasoft.web.application",
+      "artifactId" : "bonita-admin-application",
+      "version" : "10.2.0",
+      "classifier" : "application",
+      "file" : "C:\\Users\\LENOVO\\.m2\\repository\\org\\bonitasoft\\web\\application\\bonita-admin-application\\10.2.0\\bonita-admin-application-10.2.0-application.zip"
+    }
+  } ],
+  "issues" : [ ]
+}
